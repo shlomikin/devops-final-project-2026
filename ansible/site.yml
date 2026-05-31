@@ -16,16 +16,18 @@
         state: started
         enabled: yes
 
-    - name: Create homepage
+    - name: Copy index.html
       copy:
+        src: ../website/index.html
         dest: /var/www/html/index.html
-        content: |
-          <html>
-          <head>
-              <title>DevOps Final Project</title>
-          </head>
-          <body>
-              <h1>Hello from Ansible!</h1>
-              <h2>Created by Shlomi</h2>
-          </body>
-          </html>
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Copy styles.css
+      copy:
+        src: ../website/styles.css
+        dest: /var/www/html/styles.css
+        owner: root
+        group: root
+        mode: '0644'
