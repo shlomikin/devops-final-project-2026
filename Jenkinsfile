@@ -15,6 +15,7 @@ pipeline {
                 cd terraform
                 terraform init
                 terraform validate
+                terraform plan
                 '''
             }
         }
@@ -24,6 +25,7 @@ pipeline {
                 sh '''
                 cd ansible
                 ansible -i inventory.ini web -m ping
+                ansible-playbook -i inventory.ini site.yml
                 '''
             }
         }
